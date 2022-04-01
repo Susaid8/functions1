@@ -52,7 +52,7 @@ let myHeight = '62in'
 let withNum = Number(myHeight)
 let withParse = parseInt(myHeight)
 
-//console.log(withNum) will show Nan since theres letters involved
+//console.log(withNum) will show NaN since theres letters involved
 //console.log(withParse) will show first number only
 
 
@@ -118,22 +118,41 @@ let noMoreSpaces = lotsOSpaces.trim()
 
 let lowercase = 'these are my letters and i love them'
 lowercase.toUpperCase()
-//console.log(lowercase) improper way of doing it
+//console.log(lowercase) improper way of doing it. this will not make the lowercase string uppercase because you need to assign it to a variable
 
-lowercase = lowercase.toUpperCase
-console.log(lowercase)
+lowercase = lowercase.toUpperCase()
+//console.log(lowercase) now the string will be capitalized
 // Replacing Characters --------------------------------------------------------------------
 
 // make a variable that is equal to a string saying whatever you want
 // use .replace() to replace the first letter of your choosing from the string
 // use .replaceAll() to replace every letter of your choosing from the string
 
+let myFavVine = 'Road work ahead? Uh yeah, I sure hope it does!';
+
+let noFirstA = myFavVine.replace('a', 'j');
+//console.log(noFirstA);
+// only removes first a
+
+let aIsAllGone = myFavVine.replaceAll('a', 'j');
+//console.log(aIsAllGone);
+// removes all a's
 
 // Splitting Strings --------------------------------------------------------------------
 
 // make a string variable saying whatever you want
 // split the string with .split(' '), .split(','), and .split('')
 // console.log them to see the difference
+
+let sentence = 'Four smart fellows, they felt smart'
+
+let splitSpace = sentence.split(' ');
+let splitComma = sentence.split(',');
+let splitEmpty = sentence.split('');
+
+//console.log(splitSpace);
+//console.log(splitComma);
+//console.log(splitEmpty);
 
 
 // Joinging Strings --------------------------------------------------------------------
@@ -142,11 +161,45 @@ console.log(lowercase)
 // join the array with .join(), .join(''), .join(' '), .join(' + ')
 // console.log them to see the difference
 
+const tmnt = ['leonardo', 'rafael', 'michaelangelo', 'donatello'];
+
+let joinNothing = tmnt.join();
+let joinEmpty = tmnt.join('');
+let joinSpace = tmnt.join(' ');
+let joinComma = tmnt.join(' + ');
+
+//console.log(joinNothing);
+//console.log(joinEmpty);
+//console.log(joinSpace);
+//console.log(joinComma);
 
 // Functions --------------------------------------------------------------------
 
 // create functions with no params, 1 param, and 2 params
 // then show the difference between a return value vs just console logging something in the function
+
+function noParams(){
+//     console.log('This function has no parameters!')
+// };
+
+function oneParam(word){
+//     console.log(`The word I chose is ${word}.`)
+// };
+
+function twoParams(num1, num2){
+//     console.log(num1 + num2)
+// };
+
+noParams();
+oneParam('eructabundant');
+twoParams(6, 3);
+
+function hasReturn(num1, num2){
+    return num1 + num2
+}
+
+let valueOfFunction = hasReturn(6, 3);
+//console.log(hasReturn(6, 3), valueOfFunction);
 
 
 // Scope --------------------------------------------------------------------
@@ -154,9 +207,36 @@ console.log(lowercase)
 // show outer scope vs a function's inner scope by setting variables inside and outside of a function
 // console.log both variables, one of them is going to give an error
 
+let outerVar = "I'm in the outer scope!";
+
+function scopeTester(){
+    let innerVar = "I'm in the scope of the scopeTester function!"
+    //console.log(outerVar, innerVar)
+}
+scopeTester()
+// console.log(outerVar, innerVar)
 
 // Syntaxes --------------------------------------------------------------------
 
 // show an example of each of the 3 function types doing the same block of code
 
+function rooter(num){
+    return Math.sqrt(num)
+}
+
+const rooter2 = function(num){
+    return Math.sqrt(num)
+}
+
+const rooter3 = (num) => {
+    return Math.sqrt(num)
+}
+
+//console.log(rooter(36))
+//console.log(rooter2(36))
+//console.log(rooter3(36))
+
 // then show an arrow function with implicit return as well
+
+const implicit = word => `This arrow function has ${word} return`
+//console.log(implicit('implicit'))
